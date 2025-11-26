@@ -1,0 +1,4 @@
+openai
+numpy
+Pillow
+open3d

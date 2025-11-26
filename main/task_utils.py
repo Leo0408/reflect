@@ -260,7 +260,16 @@ def generate_video(taskUtil, recovery_video):
         folder = 'thor_tasks'
     img_path = f"{taskUtil.repo_path}/{folder}/{taskUtil.specific_folder_name}/ego_img/"
     save_path = f"{taskUtil.repo_path}/{folder}/{taskUtil.specific_folder_name}/"
-    SOUND_PATH = f"{taskUtil.repo_path}/assets/sounds/"
+    # 尝试两个可能的音频路径：main/assets/sounds/ 或 assets/sounds/
+    sound_path1 = f"{taskUtil.repo_path}/main/assets/sounds/"
+    sound_path2 = f"{taskUtil.repo_path}/assets/sounds/"
+    if os.path.exists(sound_path1):
+        SOUND_PATH = sound_path1
+    elif os.path.exists(sound_path2):
+        SOUND_PATH = sound_path2
+    else:
+        # 如果都不存在，使用 main/assets/sounds/ 作为默认值
+        SOUND_PATH = sound_path1
     l = os.listdir(img_path)
     lsorted = sorted(l, key=lambda x: int(os.path.splitext(x)[0].split('_')[-1]))
     

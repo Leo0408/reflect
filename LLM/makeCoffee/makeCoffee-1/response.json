@@ -1,0 +1,16 @@
+{
+    "20251120-193842": {
+        "prompt": {
+            "system": "You are expected to provide explanation for a robot failure. You are given the current robot state, the goal condition, and the robot plan. Briefly explain what was wrong with the robot plan in 1-2 sentence.",
+            "user": "The robot task is to make coffee. The task is considered successful if a clean mug is filled with coffee and on top of the countertop.\nHere's the robot observation at the end of the task execution:\nsink, mug (empty and clean), faucet (turned off), coffee machine (turned off). mug is on top of first countertop. cup is inside coffee machine. nothing is inside robot gripper.\nThe robot plan is:\n00:17. Goal: Pick up mug.\n00:29. Goal: Put mug inside sink.\n00:32. Goal: Toggle on faucet.\n00:35. Goal: Toggle off faucet.\n00:38. Goal: Pick up mug.\n00:51. Goal: Put mug inside coffee machine.\n00:54. Goal: Toggle on coffee machine.\n00:57. Goal: Toggle off coffee machine.\n01:00. Goal: Pick up mug.\n01:19. Goal: Put mug on countertop.\n\nQ: Known that all actions in the robot plan were executed successfully, what's wrong with the robot plan that caused the robot to fail?\nA:"
+        },
+        "sampling_params": {
+            "max_tokens": 256,
+            "temperature": 0.0,
+            "top_p": 1,
+            "frequency_penalty": 0.0,
+            "presence_penalty": 0.0
+        },
+        "response": "The robot plan failed because it did not include the step to pour coffee into the mug after toggling on the coffee machine. This resulted in the mug being empty when placed on the countertop, failing to meet the goal condition of having a filled mug on the countertop."
+    }
+}

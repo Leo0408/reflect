@@ -1,0 +1,31 @@
+{
+    "openai_api_key": "your-openai-api-key-here",
+    "camera_intrinsics": {
+        "fx": 914.27246,
+        "fy": 913.2658,
+        "cx": 647.0733,
+        "cy": 356.32526
+    },
+    "detection_thresholds": {
+        "clip_confidence": 0.23,
+        "iou_threshold": 0.25,
+        "distance_threshold": 0.05
+    },
+    "audio_settings": {
+        "volume_threshold": 0.03,
+        "enable_audio": true
+    },
+    "model_settings": {
+        "object_detector": "mdetr",
+        "llm_model": "gpt-4",
+        "device": "cuda:0"
+    },
+    "processing_settings": {
+        "video_fps": 30,
+        "key_frame_interval": 150,
+        "voxel_size": 0.01
+    }
+}
+
+
+

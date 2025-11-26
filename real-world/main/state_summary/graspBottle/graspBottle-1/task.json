@@ -1,0 +1,36 @@
+{
+    "name": "grasp bottle",
+    "task_idx": 5,
+    "failure_injection": false,
+    "scene": "FloorPlan16",
+    "chosen_failure": "occupied",
+    "gt_failure_reason": "The robot failed to put the mug inside the coffee machine because there was already a cup inside it, occupying the space.",
+    "gt_failure_step": "00:51",
+    "preactions": [
+        "(dirty_obj, Mug)"
+    ],
+    "failure_injection_params" : {
+        "src_obj_type": "Cup",
+        "target_obj_type": "CoffeeMachine",
+        "disp_x": 0.0,
+        "disp_z": 0.05,
+        "disp_y": 0.02
+    },
+    "actions": [
+        "(navigate_to_obj, Mug)",
+        "(pick_up, Mug)",
+        "(navigate_to_obj, Sink)",
+        "(put_on, Mug, SinkBasin)",
+        "(toggle_on, Faucet)",
+        "(toggle_off, Faucet)",
+        "(pick_up, Mug)",
+        "(pour, Mug, Sink)",
+        "(navigate_to_obj, CoffeeMachine)",
+        "(put_in, Mug, CoffeeMachine)",
+        "(toggle_on, CoffeeMachine)",
+        "(toggle_off, CoffeeMachine)",
+        "(pick_up, Mug)",
+        "(put_on, Mug, CounterTop)"
+    ],
+    "success_condition": "a clean mug is filled with coffee and on top of the countertop."
+}
